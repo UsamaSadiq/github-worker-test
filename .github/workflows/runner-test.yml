@@ -19,7 +19,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
       
     - name: Install Colorama
-      run: pip install colorama
+      run: pip install pytest
         
     - name: Run test script
-      run: python action-test.py
+      run: pytest tests/divide-tests.py
