@@ -1,0 +1,26 @@
+name: CI
+
+on: [push]
+jobs:
+  ci:
+    name: runner-test
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        node-version: [ 3.8 ]
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+        
+    - name: npm install, build, and test
+      run: |
+        npm install
+        npm run lint
+      env:
+        CI: true
