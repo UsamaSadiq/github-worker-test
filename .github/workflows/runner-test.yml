@@ -4,7 +4,7 @@ on: [push]
 jobs:
   ci:
     name: runner-test
-    runs-on: self-hosted
+    runs-on: ec2-runner
     strategy:
       matrix:
         python-version: [ '3.8' ]
