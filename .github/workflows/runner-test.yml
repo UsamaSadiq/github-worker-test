@@ -18,7 +18,7 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
       
-    - name: Install Colorama
+    - name: Install Pytest
       run: pip install pytest
         
     - name: Run test script
